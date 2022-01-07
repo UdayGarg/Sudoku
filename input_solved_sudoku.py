@@ -15,7 +15,7 @@ def create_nparray(strr):
             sub.append(wd[counter])
             counter += 1
         arr.append(sub)
-    return np.array(arr)
+    return np.array(arr).astype(np.int32)
 
 
 def pre_check(string):

@@ -51,23 +51,17 @@ grid = [[2, 5, 0, 0, 3, 0, 9, 0, 1],
         [0, 7, 0, 0, 0, 0, 0, 0, 3],
         [9, 0, 3, 0, 0, 0, 6, 0, 4]]"""
 
+
 unsolved_grid = create_nparray(access_file.return_solutions("sudoku.csv", "quizzes", 1)[0])
-actual = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
-new_actual = actual.astype(np.int32).tolist()
-new_actual1 = np.array(new_actual)
-grid = unsolved_grid.astype(np.int32).tolist()
+actual_grid = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
+grid = unsolved_grid.tolist()
 
 if Suduko(grid, 0, 0):
     solved_grid = np.array(grid)
-    print(type(solved_grid))
-    print(f"Actual :\n {new_actual1} \n Solved :\n {solved_grid}")
-    print(type(new_actual1))
-    print(type(solved_grid))
-
 else:
     print("Solution does not exist:(")
 
-comparison = new_actual1 == solved_grid
+comparison = actual_grid == solved_grid
 equal_arrays = comparison.all()
 if equal_arrays:
     print("Viola! code works")
