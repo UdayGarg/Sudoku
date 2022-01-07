@@ -1,5 +1,6 @@
 from input_solved_sudoku import *
 import access_file
+import time
 
 
 def solve(grid, row, col, num):
@@ -38,19 +39,21 @@ def Suduko(grid, row, col):
         grid[row][col] = 0
     return False
 
+if __name__ == "__main__":
+    start = time.time()
+    unsolved_grid = create_nparray(access_file.return_solutions("sudoku.csv", "quizzes", 1)[0])
+    actual_grid = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
+    grid = unsolved_grid.tolist()
+    solved_grid = 0
+    if Suduko(grid, 0, 0):
+        solved_grid = np.array(grid)
+    else:
+        print("Solution does not exist:(")
 
-unsolved_grid = create_nparray(access_file.return_solutions("sudoku.csv", "quizzes", 1)[0])
-actual_grid = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
-grid = unsolved_grid.tolist()
-
-if Suduko(grid, 0, 0):
-    solved_grid = np.array(grid)
-else:
-    print("Solution does not exist:(")
-
-comparison = actual_grid == solved_grid
-equal_arrays = comparison.all()
-if equal_arrays:
-    print("Viola! code works")
-else:
-    print("Fail")
+    comparison = actual_grid == solved_grid
+    equal_arrays = comparison.all()
+    if equal_arrays:
+        print("Viola! code works (verification successful)")
+    else:
+        print("Fail")
+    print(f"time taken = {time.time() - start:.4}s")
