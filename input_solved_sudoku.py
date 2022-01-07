@@ -7,7 +7,6 @@ def create_nparray(strr):
     wd = []
     for ch in strr:
         wd.append(ch)
-    print(len(wd))
     arr = []
     counter = 0
     for i in range(9):
