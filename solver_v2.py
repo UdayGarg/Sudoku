@@ -41,12 +41,27 @@ def Suduko(grid, row, col):
 
 if __name__ == "__main__":
     start = time.time()
+    """
     unsolved_grid = create_nparray(access_file.return_solutions("sudoku.csv", "quizzes", 1)[0])
     actual_grid = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
     grid = unsolved_grid.tolist()
+    print(unsolved_grid)
+    print(actual_grid)
+    """
+    grid = [[0, 0, 0, 0, 0, 0, 0, 7, 0],
+            [0, 0, 0, 7, 0, 0, 3, 0, 9],
+            [0, 0, 0, 0, 0, 0, 2, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 7],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 6, 0]]
+
     solved_grid = 0
     if Suduko(grid, 0, 0):
         solved_grid = np.array(grid)
+        print(solved_grid)
     else:
         print("Solution does not exist:(")
 
