@@ -1,6 +1,7 @@
 #!usr/bin/python3
 import unittest
 import splitter
+import create_sudoku
 
 def val_range(test_item):
     c = 0
@@ -22,11 +23,12 @@ def unique(test_item):
 
 class TestSudoku(unittest.TestCase):
     def test_rows(self):
-        splitter.split_into_rows(grid)
         """
+        to_test = splitter.split_into_rows(create_sudoku.create_list_of_grids()[1])
         row_test = [8, 6, 4, 3, 7, 1, 2, 5, 9]
-        self.assertEqual(val_range(row_test), True)
-        self.assertEqual(unique(row_test), True)"""
+        """
+        self.assertEqual(val_range(to_test), True)
+        self.assertEqual(unique(to_test), True)
 
 
     def test_columns(self):

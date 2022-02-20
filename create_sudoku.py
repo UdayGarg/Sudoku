@@ -18,6 +18,19 @@ def create_nparray(strr):
     return np.array(arr).astype(np.int32)
 
 
+def create_list_of_grids():
+    ls_grids = []
+    #   num = input("How many sudokus do you want to create: ")
+    ls = access_file.return_solutions("sudoku.csv", "solutions", 10)
+    for items in ls:
+        if pre_check(items):
+            n = create_nparray(items)
+            ls_grids.append(n)
+        else:
+            print("invalid ")
+    return ls_grids
+
+
 def pre_check(string):
     return string.isdigit()
 
@@ -30,11 +43,18 @@ else:
     print("invalid ")"""
 
 if __name__ == "__main__":
+    """
+    ls_grids = []
     num = input("How many sudokus do you want to create: ")
     ls = access_file.return_solutions("sudoku.csv", "solutions", int(num))
     for items in ls:
         if pre_check(items):
             n = create_nparray(items)
-            print(n)
+            ls_grids.append(n)
         else:
             print("invalid ")
+    print(ls_grids[2])"""
+    l = create_list_of_grids()
+    for i in l:
+        print(i)
+

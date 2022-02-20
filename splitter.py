@@ -35,13 +35,14 @@ for item in rand_ls:
 
 print(c)
 """
-def init_sudoku():
+"""def init_sudoku():
     # n = number of sudokus
     n = 10
     ls = access_file.return_solutions("sudoku.csv", "solutions", n)
     for item in ls:
         grid = create_nparray(item)
         return grid
+"""
 
 
 def split_into_rows(grid):
@@ -64,12 +65,12 @@ def split_into_subgrids(grid):
 
 
 if __name__ == "__main__":
-    """ls_size = 10
+    ls_size = 10
     ls = access_file.return_solutions("sudoku.csv", "solutions", ls_size)
-    for item in ls:
+
+    """for item in ls:
         grid = create_nparray(item)
         print(split_into_subgrids(grid))
         print(split_into_cols(grid))
         print(split_into_rows(grid))"""
 
-    print(split_into_cols(init_sudoku()))
