@@ -1,6 +1,7 @@
 import access_file
 from create_sudoku import create_nparray
 import skimage
+import numpy as np
 
 """
 def split_sudoku(grid):
@@ -60,17 +61,27 @@ def split_into_cols(grid):
 
 
 def split_into_subgrids(grid):
+    """
     subgrids = skimage.util.view_as_blocks(grid, (3, 3)).reshape(3, 3, -1)
-    return subgrids
-
+    return subgrids"""
+    subgrids = []
+    for box_i in range(3):
+        for box_j in range(3):
+            subgrid = []
+            for i in range(3):
+                for j in range(3):
+                    subgrid.append(grid[3 * box_i + i][3 * box_j + j])
+            subgrids.append(subgrid)
+    return np.array(subgrids)
 
 if __name__ == "__main__":
     ls_size = 10
     ls = access_file.return_solutions("sudoku.csv", "solutions", ls_size)
 
-    """for item in ls:
+    for item in ls:
         grid = create_nparray(item)
         print(split_into_subgrids(grid))
+        """
         print(split_into_cols(grid))
         print(split_into_rows(grid))"""
 
