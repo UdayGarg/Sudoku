@@ -11,5 +11,4 @@ def return_solutions(filename, col, n):
 
 
 if __name__ == "__main__":
-    print(return_solutions("sudoku.csv", "solutions", 3)) # to dynamically assign solutions to create a data set
-
+    print(return_solutions("sudoku.csv", "solutions", 3))  # to dynamically assign solutions to create a data set

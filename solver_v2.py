@@ -1,6 +1,9 @@
-from input_solved_sudoku import *
+#from input_solved_sudoku import *
 import access_file
 import time
+import numpy as np
+
+from create_sudoku import create_nparray
 
 
 def solve(grid, row, col, num):
@@ -41,7 +44,6 @@ def Suduko(grid, row, col):
 
 if __name__ == "__main__":
     start = time.time()
-    """
     unsolved_grid = create_nparray(access_file.return_solutions("sudoku.csv", "quizzes", 1)[0])
     actual_grid = create_nparray(access_file.return_solutions("sudoku.csv", "solutions", 1)[0])
     grid = unsolved_grid.tolist()
@@ -57,7 +59,7 @@ if __name__ == "__main__":
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 6, 0]]
-
+    """
     solved_grid = 0
     if Suduko(grid, 0, 0):
         solved_grid = np.array(grid)
