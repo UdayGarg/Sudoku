@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import skimage
 
 
 def return_solutions(filename, col, n):
@@ -73,6 +72,7 @@ def simple_test(test_item):
         return True
     else:
         return False
+
 
 def val_range(test_item):
     c = 0
