@@ -7,8 +7,7 @@ import functions as func
 
 def tabulate_data(item):
     """Function to create tables from array using external module "tabulate" """
-    #  tb = (tabulate(item, tablefmt="fancy_grid"))
-    tb = (tabulate(item, tablefmt="html"))
+    tb = (tabulate(item, tablefmt="fancy_grid"))
     return tb
 
 
