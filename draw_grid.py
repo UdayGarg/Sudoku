@@ -1,19 +1,11 @@
-import argparse
+import time
 from PIL import Image, ImageDraw
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("width", help="width of image in pixels",
-                        type=int)
-    parser.add_argument("height", help="height of image in pixels",
-                        type=int)
-    parser.add_argument("step_count", help="how many steps across the grid",
-                        type=int)
-    args = parser.parse_args()
-    step_count = args.step_count
-    height = args.height
-    width = args.width
-    image = Image.new(mode='L', size=(width, height), color=255)
-    # Draw a grid
+    step_count = 9
+    height = 900
+    width = 900
+    image = Image.new(mode='L', size=(height, width), color=255)
+    # Draw some lines
     draw = ImageDraw.Draw(image)
     y_start = 0
     y_end = image.height
@@ -27,6 +19,6 @@ if __name__ == '__main__':
         line = ((x_start, y), (x_end, y))
         draw.line(line, fill=128)
     del draw
-    filename = "grid-{}-{}-{}.png".format(width, height, step_count)
-    print("Saving {}".format(filename))
+    filename = f"grid-{time.time()}.png"
+    print(f"saving {filename}")
     image.save(filename)
