@@ -1,7 +1,11 @@
+"""This module draws a 9x9 empty grid and then saves it as PNG file"""
 import time
 from PIL import Image, ImageDraw
-if __name__ == '__main__':
-    step_count = 9
+
+
+def generate_empty_grid():
+    """Function to draw a 9x9 grid in an 900x900 pixels image and save it as PNG file """
+    STEP_COUNT = 9
     height = 900
     width = 900
     image = Image.new(mode='L', size=(height, width), color=255)
@@ -9,7 +13,7 @@ if __name__ == '__main__':
     draw = ImageDraw.Draw(image)
     y_start = 0
     y_end = image.height
-    step_size = int(image.width / step_count)
+    step_size = int(image.width / STEP_COUNT)
     for x in range(0, image.width, step_size):
         line = ((x, y_start), (x, y_end))
         draw.line(line, fill=128)
@@ -22,3 +26,8 @@ if __name__ == '__main__':
     filename = f"grid-{time.time()}.png"
     print(f"saving {filename}")
     image.save(filename)
+
+
+
+if __name__ == '__main__':
+    generate_empty_grid()
